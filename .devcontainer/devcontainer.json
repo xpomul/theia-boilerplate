@@ -1,0 +1,10 @@
+// For format details, see https://aka.ms/devcontainer.json. For config options, see the README at:
+// https://github.com/microsoft/vscode-dev-containers/tree/v0.205.2/containers/docker-from-docker-compose
+{
+	"name": "theia-dev",
+	"context": "../docker-container",
+	"dockerFile": "../docker-container/Dockerfile",
+	"forwardPorts": [3000],
+	"postCreateCommand": "yarn && yarn theia build",
+	"remoteUser": "node"
+}

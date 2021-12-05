@@ -2,7 +2,9 @@ version: "3.7"
 services:
   theia:
     build:
-      context: docker-container
+      context: ../docker-container
     stdin_open: true
     tty: true
-    
+    volumes:
+      - /Users/stefan/Privat/theia-boilerplate/:/theia:cached
+      
