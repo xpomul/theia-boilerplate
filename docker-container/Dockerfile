@@ -1,9 +1,7 @@
 FROM node:12
-WORKDIR /theia
 
-# required to satisfy Theia dependencies
 RUN apt-get update \
-    && apt-get install -y libsecret-1-0 libxkbfile1
+    && apt-get install -y g++ gcc make python2.7 pkg-config libx11-dev libxkbfile-dev libsecret-1-dev
 
 # install code generator for theia extensions
 RUN npm install -g yo generator-theia-extension
