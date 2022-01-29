@@ -23,7 +23,8 @@
   },
   "theiaExtensions": [
     {
-      "frontend": "lib/browser/hello-world-frontend-module"
+      "frontend": "lib/browser/hello-world-frontend-module",
+      "backend": "lib/node/hello-world-backend-module"
     }
   ]
 }
