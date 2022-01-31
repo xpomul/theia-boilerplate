@@ -4,7 +4,7 @@
 import { HelloWorldCommandContribution, HelloWorldMenuContribution } from './hello-world-contribution';
 import { CommandContribution, MenuContribution } from '@theia/core/lib/common';
 import { ContainerModule } from '@theia/core/shared/inversify';
-import { HelloWorld, IHelloWorld, HELLO_WORLD_SERVICE_PATH } from '../common/hello-world-service';
+import { HelloWorld, HelloWorldConstants } from '../common/hello-world';
 import { WebSocketConnectionProvider } from '@theia/core/lib/browser';
 
 export default new ContainerModule(bind => {
@@ -13,7 +13,7 @@ export default new ContainerModule(bind => {
     bind(MenuContribution).to(HelloWorldMenuContribution);
     bind(HelloWorld).toDynamicValue(ctx => {
         const connection = ctx.container.get(WebSocketConnectionProvider);
-        return connection.createProxy<IHelloWorld>(HELLO_WORLD_SERVICE_PATH);
+        return connection.createProxy<HelloWorld>(HelloWorldConstants.SERVICE_PATH);
     }).inSingletonScope();    
 
 });

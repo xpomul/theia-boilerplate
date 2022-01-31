@@ -1,7 +1,7 @@
 import { injectable, inject } from '@theia/core/shared/inversify';
 import { Command, CommandContribution, CommandRegistry, MenuContribution, MenuModelRegistry, MessageService } from '@theia/core/lib/common';
 import { CommonMenus } from '@theia/core/lib/browser';
-import { HelloWorld, IHelloWorld } from '../common/hello-world-service';
+import { HelloWorld } from '../common/hello-world';
 
 export const HelloWorldCommand: Command = {
     id: 'HelloWorld.command',
@@ -13,7 +13,7 @@ export class HelloWorldCommandContribution implements CommandContribution {
 
     constructor(
         @inject(MessageService) private readonly messageService: MessageService,
-        @inject(HelloWorld) private readonly helloWorldService: IHelloWorld
+        @inject(HelloWorld) private readonly helloWorldService: HelloWorld
     ) { }
 
     registerCommands(registry: CommandRegistry): void {
