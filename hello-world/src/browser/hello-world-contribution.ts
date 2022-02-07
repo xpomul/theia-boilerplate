@@ -19,8 +19,7 @@ export class HelloWorldCommandContribution implements CommandContribution {
     registerCommands(registry: CommandRegistry): void {
         registry.registerCommand(HelloWorldCommand, {
             execute: async () => {
-                const helloString = await this.helloWorldService.getHelloString()
-                this.messageService.info(helloString)
+                this.helloWorldService.getHelloString().then(helloString => this.messageService.info(helloString))
             }
         });
     }
